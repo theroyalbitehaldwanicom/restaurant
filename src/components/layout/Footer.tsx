@@ -79,7 +79,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-royal-800 text-center text-sm text-gray-500">
-          <p>&copy; {new Date().getFullYear()} The Royal Bite Best Restaurant in Haldwani. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} The Royal Bite. All rights reserved.</p>
         </div>
       </div>
     </footer>

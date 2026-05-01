@@ -34,7 +34,7 @@ const reviews = [
     name: "Shri Kant Dubey",
     role: "Local Guide • 67 reviews • 35 photos",
     rating: 5,
-    text: "Dining at The Royal Bite Best Restaurant in Haldwani was an absolute treat! From the moment we walked in, the amazing ambience set the perfect mood for a great meal. The food was delicious, with every dish packed with flavor and cooked to perfection. Beyond the taste, the entire place was noticeably hygienic and well-maintained, which we really appreciated. To top it off, the staff was incredibly courteous and attentive, making us feel truly welcome throughout the evening. If you’re looking for a spot that nails food, service, and vibes all at once, this is it! The food was served by Dinesh ji with so much affection and modesty.\nFood: 5/5 | Service: 5/5 | Atmosphere: 5/5",
+    text: "Dining at The Royal Bite was an absolute treat! From the moment we walked in, the amazing ambience set the perfect mood for a great meal. The food was delicious, with every dish packed with flavor and cooked to perfection. Beyond the taste, the entire place was noticeably hygienic and well-maintained, which we really appreciated. To top it off, the staff was incredibly courteous and attentive, making us feel truly welcome throughout the evening. If you’re looking for a spot that nails food, service, and vibes all at once, this is it! The food was served by Dinesh ji with so much affection and modesty.\nFood: 5/5 | Service: 5/5 | Atmosphere: 5/5",
     date: "4 weeks ago"
   },
   {
@@ -48,7 +48,7 @@ const reviews = [
     name: "Priya Sharma",
     role: "Hosted a Birthday Party",
     rating: 5,
-    text: "The Royal Bite Best Restaurant in Haldwani truly lives up to its name! We hosted my daughter's 5th birthday, and everything from the decor to the Dal Makhani was just perfect. Highly recommend!",
+    text: "The Royal Bite truly lives up to its name! We hosted my daughter's 5th birthday, and everything from the decor to the Dal Makhani was just perfect. Highly recommend!",
     date: "2 months ago"
   },
   {

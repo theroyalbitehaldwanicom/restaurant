@@ -11,7 +11,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-royal-900/80 via-royal-900/50 to-royal-900/80 z-10" />
           <img 
             src="/main-bg.jpeg" 
-            alt="The Royal Bite Best Restaurant in Haldwani Ambience" 
+            alt="The Royal Bite Ambience" 
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
@@ -119,12 +119,12 @@ export default function Home() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h2 className="text-gold font-medium tracking-widest uppercase text-sm">About The Royal Bite Best Restaurant in Haldwani</h2>
+              <h2 className="text-gold font-medium tracking-widest uppercase text-sm">About The Royal Bite</h2>
               <h3 className="text-4xl md:text-5xl font-serif font-bold text-white leading-tight">
                 Where Culinary Art Meets Elegance
               </h3>
               <p className="text-gray-400 text-lg leading-relaxed">
-                We believe that dining is not just about food, it is an experience. The Royal Bite Best Restaurant in Haldwani was established with a singular vision: to provide the finest vegetarian delicacies in an atmosphere that makes you feel nothing short of royalty.
+                We believe that dining is not just about food, it is an experience. The Royal Bite was established with a singular vision: to provide the finest vegetarian delicacies in an atmosphere that makes you feel nothing short of royalty.
               </p>
               <div className="pt-4">
                 <Link to="/about" className="inline-flex items-center gap-2 bg-royal-700 hover:bg-royal-900 text-white border border-royal-700 hover:border-gold px-6 py-3 rounded-full transition-all">
@@ -166,11 +166,11 @@ export default function Home() {
             
             <h2 className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight">
               Free Delivery Promise
-              <span className="block text-gold text-2xl md:text-3xl mt-2 font-medium italic">— The Royal Bite Best Restaurant in Haldwani</span>
+              <span className="block text-gold text-2xl md:text-3xl mt-2 font-medium italic">— The Royal Bite</span>
             </h2>
             
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
-              At The Royal Bite Best Restaurant in Haldwani, we believe a premium dining experience should come without hidden costs. We proudly offer <strong className="text-white font-bold bg-white/10 px-2 py-0.5 rounded">FREE DELIVERY on every single order</strong>.
+              At The Royal Bite, we believe a premium dining experience should come without hidden costs. We proudly offer <strong className="text-white font-bold bg-white/10 px-2 py-0.5 rounded">FREE DELIVERY on every single order</strong>.
             </p>
             
             <div className="bg-royal-800/80 backdrop-blur border border-royal-700/50 p-6 md:p-10 rounded-2xl shadow-2xl space-y-6 max-w-3xl mx-auto transform transition-all hover:border-gold/30 hover:shadow-[0_0_30px_rgba(212,175,55,0.1)]">
