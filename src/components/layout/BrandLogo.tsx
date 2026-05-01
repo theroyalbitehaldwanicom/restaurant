@@ -18,7 +18,7 @@ export default function BrandLogo({ className = "w-16 h-16 md:w-20 md:h-20", isF
         </div>
         <div className="flex flex-col">
           <span className="font-serif text-2xl font-bold tracking-wider text-white group-hover:text-gold-light transition-colors duration-300">
-            The Royal Bite
+            The Royal Bite Best Restaurant in Haldwani
           </span>
           <span className="text-[10px] tracking-widest text-gold text-center font-medium uppercase mt-0.5 group-hover:text-white transition-colors duration-300">
             Royal Taste, Everyday Price
@@ -31,7 +31,7 @@ export default function BrandLogo({ className = "w-16 h-16 md:w-20 md:h-20", isF
   return (
     <img 
       src="/logo.png" 
-      alt="The Royal Bite" 
+      alt="The Royal Bite Best Restaurant in Haldwani" 
       className={`${className} object-contain drop-shadow-[0_0_8px_rgba(212,175,55,0.3)] transition-all duration-300 rounded-full`}
       onError={() => setImgError(true)}
     />

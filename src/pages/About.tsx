@@ -57,7 +57,7 @@ export default function About() {
             <div className="absolute inset-0 bg-gold/20 translate-x-4 translate-y-4 rounded-2xl"></div>
             <img 
               src="/logo.png" 
-              alt="The Royal Bite Logo" 
+              alt="The Royal Bite Best Restaurant in Haldwani Logo" 
               className="relative w-full h-[400px] md:h-[600px] object-contain p-8 rounded-2xl bg-royal-800/40 shadow-xl border border-royal-700"
               referrerPolicy="no-referrer"
             />
@@ -70,10 +70,10 @@ export default function About() {
             className="space-y-6 text-gray-300 text-lg leading-relaxed"
           >
             <p>
-              Founded by <strong className="text-gold font-serif text-xl">Surender Kumar Saini</strong> and led by <strong className="text-gold font-serif text-xl">Mr. Madan Lal Saini, Manager of The Royal Bite</strong>, the brand stands on a strong vision of excellence, premium service, and global ambition.
+              Founded by <strong className="text-gold font-serif text-xl">Surender Kumar Saini</strong> and led by <strong className="text-gold font-serif text-xl">Mr. Madan Lal Saini, Manager of The Royal Bite Best Restaurant in Haldwani</strong>, the brand stands on a strong vision of excellence, premium service, and global ambition.
             </p>
             <p>
-              At The Royal Bite, we didn’t just set out to create a restaurant — we set out to build a legacy. A brand that reflects elegance, consistency, and a global standard of excellence. From the very beginning, our vision has been clear: to transform The Royal Bite into an international name, known for its premium quality and unforgettable dining experience.
+              At The Royal Bite Best Restaurant in Haldwani, we didn’t just set out to create a restaurant — we set out to build a legacy. A brand that reflects elegance, consistency, and a global standard of excellence. From the very beginning, our vision has been clear: to transform The Royal Bite Best Restaurant in Haldwani into an international name, known for its premium quality and unforgettable dining experience.
             </p>
             <p>
               Every dish we serve is a reflection of our commitment to perfection. We believe that true luxury is not just about presentation, but about consistency, taste, and trust. That’s why we focus on delivering five-star quality food at the right price — making premium dining accessible without compromise.
@@ -82,10 +82,10 @@ export default function About() {
               Our ingredients are carefully selected, our recipes are thoughtfully crafted, and our standards are uncompromising. From the freshness of every element to the finesse in every plate, quality is not just a promise — it is our identity.
             </p>
             <p>
-              We don’t follow trends — we set benchmarks. Our team is driven by passion, guided by innovation, and committed to creating experiences that feel both luxurious and welcoming. Whether it’s a casual visit or a special celebration, every moment at The Royal Bite is designed to feel premium.
+              We don’t follow trends — we set benchmarks. Our team is driven by passion, guided by innovation, and committed to creating experiences that feel both luxurious and welcoming. Whether it’s a casual visit or a special celebration, every moment at The Royal Bite Best Restaurant in Haldwani is designed to feel premium.
             </p>
             <p>
-              As we grow, our goal remains the same — to take our brand beyond boundaries, representing Indian hospitality on a global stage. Because for us, The Royal Bite is not just a restaurant… <span className="text-gold font-bold italic">it’s a statement of class, quality, and ambition.</span>
+              As we grow, our goal remains the same — to take our brand beyond boundaries, representing Indian hospitality on a global stage. Because for us, The Royal Bite Best Restaurant in Haldwani is not just a restaurant… <span className="text-gold font-bold italic">it’s a statement of class, quality, and ambition.</span>
             </p>
           </motion.div>
         </div>
@@ -93,7 +93,7 @@ export default function About() {
         {/* Values Section */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-4">Why Choose Us</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">The pillars that make The Royal Bite a premium dining destination.</p>
+          <p className="text-gray-400 max-w-2xl mx-auto">The pillars that make The Royal Bite Best Restaurant in Haldwani a premium dining destination.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
