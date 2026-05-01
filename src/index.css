@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-gold-400: #fbd38d;
+  --color-gold-500: #f6ad55;
+  --color-gold-600: #dd6b20;
+  --color-gold-700: #c05621;
+  
+  /* Primary gold we want to use */
+  --color-gold: #d4af37;
+  --color-gold-light: #f3e5ab;
+  --color-gold-dark: #aa8c2c;
+
+  --color-royal-900: #0f1115;
+  --color-royal-800: #1a1d24;
+  --color-royal-700: #2a2f3a;
+
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-royal-900 text-gray-200 font-sans antialiased overflow-x-hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-white;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+

@@ -1,0 +1,62 @@
+// firebase-blueprint.json
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "A user of the application",
+      "type": "object",
+      "properties": {
+        "fullName": { "type": "string", "description": "The user's full name" },
+        "phoneNumber": { "type": "string", "description": "The user's phone number" },
+        "email": { "type": "string", "description": "The user's email" },
+        "createdAt": { "type": "string", "format": "timestamp", "description": "When the user was created" }
+      },
+      "required": ["fullName", "phoneNumber", "createdAt"]
+    },
+    "UserAddress": {
+      "title": "UserAddress",
+      "description": "An address associated with a user",
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "enum": ["Home", "Work", "Other"], "description": "The type of address" },
+        "address": { "type": "string", "description": "The full address text" },
+        "mapLink": { "type": "string", "description": "The Google Maps link" },
+        "isDefault": { "type": "boolean", "description": "Whether this is the default address" },
+        "createdAt": { "type": "string", "format": "timestamp", "description": "When the address was created" }
+      },
+      "required": ["type", "address", "createdAt"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "An order placed by a user",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "customerName": { "type": "string" },
+        "phone": { "type": "string" },
+        "address": { "$ref": "UserAddress" },
+        "items": { "type": "array" },
+        "subtotal": { "type": "number" },
+        "discount": { "type": "number" },
+        "totalBill": { "type": "number" },
+        "status": { "type": "string", "enum": ["pending", "completed"] },
+        "createdAt": { "type": "string", "format": "timestamp" }
+      },
+      "required": ["userId", "customerName", "phone", "address", "items", "subtotal", "discount", "totalBill", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "The core user profile"
+    },
+    "/users/{userId}/addresses/{addressId}": {
+      "schema": "UserAddress",
+      "description": "Addresses saved by the user"
+    },
+    "/users/{userId}/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Orders placed by the user"
+    }
+  }
+}

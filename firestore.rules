@@ -1,0 +1,80 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+    
+    // --- Primitives ---
+    function isValidId(id) { return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$'); }
+    function incoming() { return request.resource.data; }
+    function existing() { return resource.data; }
+    function isSignedIn() { return request.auth != null; }
+    function isOwner(userId) { return isSignedIn() && request.auth.uid == userId; }
+    
+    // --- User Validation ---
+    function isValidUser(data) {
+      return data.keys().hasAll(['fullName', 'phoneNumber', 'createdAt']) && 
+             data.keys().size() >= 3 && data.keys().size() <= 6 &&
+             data.fullName is string && data.fullName.size() > 0 && data.fullName.size() <= 100 &&
+             data.phoneNumber is string && data.phoneNumber.size() > 0 && data.phoneNumber.size() <= 20 &&
+             (data.get('email', '') == '' || (data.email is string && data.email.size() <= 100)) &&
+             (data.get('address', '') == '' || (data.address is string && data.address.size() <= 500)) &&
+             (data.get('mapLink', '') == '' || (data.mapLink is string && data.mapLink.size() <= 500)) &&
+             data.createdAt == request.time;
+    }
+    
+    match /users/{userId} {
+      allow get: if isOwner(userId) && isValidId(userId);
+      allow create: if isOwner(userId) && isValidId(userId) && isValidUser(incoming());
+      allow update: if isOwner(userId) && isValidId(userId) &&
+        (incoming().diff(existing()).affectedKeys().hasOnly(['fullName', 'phoneNumber', 'email', 'address', 'mapLink', 'updatedAt'])) &&
+        (incoming().get('fullName', existing().fullName) is string && incoming().get('fullName', existing().fullName).size() > 0 && incoming().get('fullName', existing().fullName).size() <= 100) &&
+        (incoming().get('phoneNumber', existing().phoneNumber) is string && incoming().get('phoneNumber', existing().phoneNumber).size() > 0 && incoming().get('phoneNumber', existing().phoneNumber).size() <= 20) &&
+        (incoming().get('email', '') == '' || (incoming().email is string && incoming().email.size() <= 100)) &&
+        (incoming().get('address', '') == '' || (incoming().address is string && incoming().address.size() <= 500)) &&
+        (incoming().get('mapLink', '') == '' || (incoming().mapLink is string && incoming().mapLink.size() <= 500));
+        
+      // --- Addresses ---
+      function isValidAddress(data) {
+        return data.keys().hasAll(['type', 'address', 'createdAt']) &&
+               data.keys().size() >= 3 && data.keys().size() <= 5 &&
+               data.type in ['Home', 'Work', 'Other'] &&
+               data.address is string && data.address.size() > 0 && data.address.size() <= 500 &&
+               (data.get('mapLink', '') == '' || (data.mapLink is string && data.mapLink.size() <= 200)) &&
+               (data.get('isDefault', false) == false || data.isDefault is bool) &&
+               data.createdAt == request.time;
+      }
+      
+      match /addresses/{addressId} {
+        allow read: if isOwner(userId) && isValidId(userId) && isValidId(addressId);
+        allow create: if isOwner(userId) && isValidId(userId) && isValidId(addressId) && isValidAddress(incoming());
+        allow update: if isOwner(userId) && isValidId(userId) && isValidId(addressId) &&
+          incoming().diff(existing()).affectedKeys().hasOnly(['type', 'address', 'mapLink', 'isDefault']); // Simplified for now but protected
+        allow delete: if isOwner(userId) && isValidId(userId) && isValidId(addressId);
+      }
+      
+      // --- Orders ---
+      function isValidOrder(data, uid) {
+         return data.keys().hasAll(['userId', 'customerName', 'phone', 'address', 'items', 'subtotal', 'discount', 'totalBill', 'status', 'createdAt']) &&
+               data.keys().size() == 10 &&
+               data.userId == uid &&
+               data.customerName is string && data.customerName.size() <= 100 &&
+               data.phone is string && data.phone.size() <= 20 &&
+               data.address is map &&
+               data.items is list && data.items.size() <= 50 &&
+               data.subtotal is number &&
+               data.discount is number &&
+               data.totalBill is number &&
+               data.status in ['pending', 'completed'] &&
+               data.createdAt == request.time;
+      }
+      
+      match /orders/{orderId} {
+        allow read: if isOwner(userId) && isValidId(userId) && isValidId(orderId);
+        allow create: if isOwner(userId) && isValidId(userId) && isValidId(orderId) && isValidOrder(incoming(), userId);
+        // Orders are immutable once created by the client
+      }
+    }
+  }
+}
